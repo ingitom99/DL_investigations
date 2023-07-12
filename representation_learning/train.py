@@ -3,8 +3,11 @@ import torch.nn
 from tqdm.auto import tqdm
 import os
 import numpy as np
+import random
+from model_makers import create_encoder, create_projection_head
+from loss import simclr_loss
 
-def train(loader, epochs=5):
+def train(loader, epochs, device):
     torch.manual_seed(0)
     random.seed(0)
     
