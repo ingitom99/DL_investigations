@@ -1,3 +1,6 @@
+import torch
+import torch.nn.functional as F
+
 def simclr_loss(z1, z2, temperature=0.5, device='cpu'):
     bs, dim_feat = z1.shape
     reps = torch.cat([z1, z2], dim=0)
